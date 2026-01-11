@@ -1,0 +1,181 @@
+:root {
+  /* Google Brand Colors */
+  --color-blue: #4285F4;
+  --color-red: #EA4335;
+  --color-yellow: #FBBC05;
+  --color-green: #34A853;
+
+  /* Text & Background */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F9FA;
+  /* Footer/Hover gray */
+  --text-primary: #202124;
+  --text-secondary: #70757a;
+  /* Brief descriptions */
+  --text-link: #1a0dab;
+  /* Link color */
+  --border-color: #dfe1e5;
+
+  /* Shadows */
+  --shadow-card: 0 1px 6px rgba(32, 33, 36, 0.28);
+  --shadow-hover: 0 4px 12px rgba(13, 13, 13, 0.08);
+  /* Smoother hover */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-y: auto;
+  height: auto;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-y: auto;
+  height: auto;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Utilities */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.google-button {
+  background-color: #f8f9fa;
+  border: 1px solid #f8f9fa;
+  border-radius: 4px;
+  color: #3c4043;
+  font-family: inherit;
+  font-size: 14px;
+  margin: 11px 4px;
+  padding: 0 16px;
+  line-height: 27px;
+  height: 36px;
+  min-width: 54px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.google-button:hover {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+  border: 1px solid #dadce0;
+  color: #202124;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 20px !important;
+    flex-direction: column;
+  }
+
+  .search-results-list {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+
+  .knowledge-panel {
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-top: 30px;
+  }
+
+  .search-header-container>div:first-child {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .search-header-container form {
+    width: 100%;
+    max-width: none !important;
+  }
+
+  .search-header-container>div:last-child {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+/* Pokemon Animation */
+@keyframes walk-across {
+  0% {
+    left: -100px;
+    transform: scaleX(1);
+    /* Facing right */
+  }
+
+  48% {
+    left: 90%;
+    transform: scaleX(1);
+  }
+
+  50% {
+    left: 90%;
+    transform: scaleX(-1);
+    /* Turn around */
+  }
+
+  98% {
+    left: -100px;
+    transform: scaleX(-1);
+  }
+
+  100% {
+    left: -100px;
+    transform: scaleX(1);
+  }
+}
+
+.pokemon-container {
+  position: absolute;
+  bottom: 100%;
+  /* Sit right on top of the border */
+  right: 0;
+  left: 0;
+  height: 50px;
+  /* overflow: hidden; */
+  /* Removed to allow page scroll */
+  pointer-events: none;
+  /* Don't block clicks */
+}
+
+.pokemon-interactive-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  pointer-events: none;
+  z-index: 10;
+  /* overflow: hidden; */
+  /* Removed to allow page scroll */
+}
+
+.pokemon-walker {
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  /* Adjust size as needed */
+  animation: walk-across 20s linear infinite;
+  image-rendering: pixelated;
+}
